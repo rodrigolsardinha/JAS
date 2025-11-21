@@ -69,7 +69,7 @@ p {
     left: 0;
     width: 100%;      
     height: 150%;
-    background-image: url('/imagens/WEB_LF_25102013_0292.jpg');
+    background-image: url('imagens/header.jpg');
     background-size: cover;
     /*background-repeat: no-repeat;*/
     background-attachment: fixed;
@@ -1057,3 +1057,4 @@ body[data-aos-easing] [data-aos].aos-animate {
   background: rgba(255,255,255,.14);
   border-color: rgba(255,255,255,.9);
 }
+
