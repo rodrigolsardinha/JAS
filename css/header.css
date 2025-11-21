@@ -26,7 +26,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url('imagens/header.jpg');
+  background-image: url('../imagens/header.jpg');
   background-size: cover;
   background-position: 65% 17%;
   background-repeat: no-repeat;
@@ -414,7 +414,7 @@ body.page-determafra .first-section::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("/imagens/WEB_LF_25102013_0291.jpg");
+  background-image: url("../imagens/header.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain; /* mostra o logo inteiro sem cortar */
@@ -444,5 +444,6 @@ body.page-determafra .first-section .nav-links a {
     justify-content: center;
     gap: 20px;
 }
+
 
 
