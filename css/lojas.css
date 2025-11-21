@@ -1,0 +1,326 @@
+/* =========================
+   Reset e base
+========================= */
+.lojas-content * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+h1, h2 {
+    font-family: 'Playfair Display', serif;
+    color: #333;
+}
+
+h3, h4, h5 {
+    font-family: 'DM Sans', sans-serif;
+    color: #333;
+}
+
+p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #555;
+}
+
+/* Fundo e tipografia da página */
+.lojas-content {
+  background: linear-gradient(135deg,#faf8f5 0%,#f5f1eb 100%);
+  color: #3d2e1f;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Container */
+.container{ width:100%; padding:3rem 1rem; }
+.content{ max-width:1200px; margin:0 auto; }
+
+/* =========================
+   Header interno / lojas
+========================= */
+
+
+.subtitle{
+  font-size:1.25rem; color:#6b5844; max-width:42rem; margin:0 auto;
+}
+
+/* Grid de lojas */
+.stores-grid{
+  display:grid; grid-template-columns:repeat(1,1fr);
+  gap:2rem; margin-bottom:3rem;
+}
+@media (min-width:768px){
+  .stores-grid{ grid-template-columns:repeat(2,1fr); }
+}
+
+/* Cartões */
+.store-card{
+  background:#fff; border-radius:.75rem; overflow:hidden; border:2px solid #e8d5bc;
+  transition:transform .3s ease, box-shadow .3s ease;
+  box-shadow:0 1px 3px rgba(0,0,0,.1);
+}
+.store-card:hover{ transform:translateY(-4px); box-shadow:0 10px 25px rgba(0,0,0,.15); }
+.card-accent{ height:.5rem; background:linear-gradient(90deg,#e8a73a 0%,#f0c675 50%,#e8a73a 100%); }
+.card-content{ padding:1.5rem; }
+.card-content h3{ font-size:1.5rem; font-weight:700; color:#3d2e1f; margin-bottom:1.5rem; }
+
+/* Info dentro dos cartões */
+.info-section{ display:flex; flex-direction:column; gap:1rem; }
+.info-item{ display:flex; gap:.75rem; color:#6b5844; font-size:.875rem; }
+.info-item p, .info-item a{ line-height:1.6; }
+.info-item a{ color:#6b5844; text-decoration:none; transition:color .2s ease; }
+.info-item a:hover{ color:#e8a73a; }
+
+/* Ícones */
+.icon{ width:1.25rem; height:1.25rem; flex-shrink:0; margin-top:.125rem; }
+.icon-primary{ color:#e8a73a; }
+
+/* Horários */
+.schedule{ display:flex; flex-direction:column; gap:.25rem; }
+.schedule .special{ font-weight:600; color:#3d2e1f; }
+
+/* Rodapé informativo */
+.footer-info{
+  background:rgba(240,198,117,.2); padding:1.5rem; border-radius:.5rem; text-align:center;
+}
+.footer-info p{ color:#6b5844; font-size:.9375rem; }
+.footer-info strong{ color:#3d2e1f; font-weight:600; }
+
+
+
+@media (min-width:1024px){
+  .stores-grid{ gap:2.5rem; }
+}
+
+/* =========================
+   Secção Ericeirapão
+========================= */
+.ericeirapao-section {
+  background:#faf8f5;
+  color:#3d2e1f;
+  padding:80px 40px;
+  font-family:"Poppins","DM Sans","Montserrat",Arial,sans-serif;
+  text-align:center; /* título centrado */
+}
+
+/* Título */
+.ericeirapao-titulo{
+  font-family:"Playfair Display",serif;
+  font-size:2.6rem; line-height:1.2; font-weight:700;
+  color:#3d2e1f;
+  margin-bottom:48px;
+  display:inline-block; position:relative;
+}
+.ericeirapao-titulo::after{
+  content:""; display:block; width:100%; height:3px;
+  background:#b08456; border-radius:999px; margin:12px auto 0;
+}
+
+.ericeirapao-inner {
+  display: grid;
+  grid-template-columns: minmax(260px, 360px) minmax(320px, 560px);
+  column-gap: 90px; /* era 60px → mais espaço entre imagem e texto */
+  justify-content: center;
+  align-items: start;
+  max-width: 1300px; /* ligeiramente mais largo */
+  margin: 0 auto;
+  text-align: left;
+}
+
+/* Coluna esquerda: carrossel */
+.ericeirapao-carousel{ width:100%; }
+
+.carousel-wrapper{
+  max-width:360px; width:100%; margin:0 auto; position:relative;
+}
+
+/* viewport + track + slide */
+.carousel-viewport{
+  overflow:hidden; border-radius:16px; background:#000;
+  box-shadow:0 25px 60px rgba(0,0,0,.07);
+}
+.carousel-track{
+  display:flex; transition:transform .5s cubic-bezier(0.22,1,0.36,1);
+  touch-action: pan-y;
+}
+.carousel-slide{ flex:0 0 100%; min-width:0; }
+
+/* imagem vertical */
+.carousel-media{ aspect-ratio:3 / 4; width:100%; overflow:hidden; }
+.carousel-media img{
+  width:100%; height:100%; object-fit:cover;
+  transition:transform .5s ease, filter .5s ease;
+}
+.carousel-media img:hover{ transform:scale(1.05); filter:brightness(1.05); }
+
+/* === SETAS CLEAN ELEGANTES === */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 36px;
+  width: 36px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(4px);
+  color: #5c4023;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+.carousel-wrapper:hover .carousel-btn {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+}
+.carousel-btn:hover {
+  background: #fff;
+  transform: translateY(-50%) scale(1.15);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+}
+
+/* Ícones das setas */
+.carousel-btn::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+}
+.carousel-btn.prev::before {
+  transform: rotate(-135deg);
+  margin-left: 2px;
+}
+.carousel-btn.next::before {
+  transform: rotate(45deg);
+  margin-right: 2px;
+}
+
+/* Posição das setas */
+.carousel-btn.prev { left: -42px; }
+.carousel-btn.next { right: -42px; }
+
+@media (max-width: 820px) {
+  .carousel-btn {
+    height: 32px;
+    width: 32px;
+    font-size: 18px;
+  }
+  .carousel-btn.prev { left: 8px; }
+  .carousel-btn.next { right: 8px; }
+}
+
+/* Dots */
+.carousel-dots{
+  display:flex; justify-content:center; gap:8px; margin-top:16px;
+}
+.carousel-dots .dot{
+  height:8px; width:8px; border-radius:999px; border:0;
+  background:rgba(176,132,86,.3); cursor:pointer; transition:all .3s ease;
+}
+.carousel-dots .dot.active{ width:32px; background:#b08456; }
+
+.ericeirapao-texto {
+  padding-right: 20px; /* respiro interno à direita */
+  max-width: 560px;
+}
+.ericeirapao-eyebrow{
+  display:inline-block;
+  font-size:.8rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:#b08456;
+  font-weight:600;
+  margin-bottom:10px;
+}
+
+.ericeirapao-subtitulo{
+  font-family:"Playfair Display",serif;
+  font-size:2.1rem;
+  line-height:1.25;
+  font-weight:700;
+  color:#3d2e1f;
+  margin:0 0 14px 0;
+}
+
+.ericeirapao-lead{
+  font-size:1.05rem;
+  color:#453a2e;
+  line-height:1.7;
+  margin:0 0 18px 0;
+  max-width: 58ch;
+}
+
+/* Lista curta com "checks" */
+.ericeirapao-feature-list{
+  list-style:none;
+  margin:0 0 18px 0;
+  padding:0;
+  display:grid;
+  gap:10px;
+}
+.ericeirapao-feature-list li{
+  position:relative;
+  padding-left:28px;
+  color:#4a4a4a;
+}
+.ericeirapao-feature-list li::before{
+  content:"";
+  position:absolute; left:0; top:7px;
+  width:16px; height:16px; border-radius:50%;
+  background:
+    radial-gradient(circle at 55% 55%, #b08456 45%, #b08456 45%) ,
+    conic-gradient(from 45deg, #b08456 0 90deg, transparent 90deg 360deg);
+  /* pequeno “check” minimalista */
+  box-shadow:0 0 0 2px #f0e4d4 inset, 0 1px 4px rgba(0,0,0,.08);
+}
+
+/* Pills informativas */
+.ericeirapao-pills{
+  display:flex; flex-wrap:wrap; gap:8px;
+  margin-top:6px;
+}
+.ericeirapao-pills .pill{
+  font-size:.85rem;
+  color:#5b4a39;
+  padding:6px 10px;
+  border-radius:999px;
+  background: #f4eadc;
+  border:1px solid #ead7bf;
+  box-shadow:0 1px 2px rgba(0,0,0,.04);
+}
+
+/* ——— Ajustes de layout para casar melhor com o slider ——— */
+.ericeirapao-inner{
+  column-gap:72px; /* um pouco mais de ar entre imagem e texto */
+  align-items:start;
+}
+
+/* Mobile: centra e dá respiro */
+@media (max-width:820px){
+  .ericeirapao-texto{ max-width:520px; margin:0 auto; text-align:center; }
+  .ericeirapao-feature-list li{ padding-left:0; }
+  .ericeirapao-feature-list li::before{ display:none; } /* limpa o visual em ecrãs pequenos */
+  .ericeirapao-pills{ justify-content:center; }
+}
+
+/* Responsivo da secção */
+@media (max-width:820px){
+  .ericeirapao-inner{
+    grid-template-columns:1fr;
+    row-gap:40px; text-align:center;
+  }
+  .ericeirapao-texto{
+    max-width:500px; margin:0 auto; text-align:center;
+  }
+  .carousel-wrapper{ margin:0 auto; max-width:90%; }
+}

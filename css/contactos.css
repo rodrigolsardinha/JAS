@@ -1,0 +1,210 @@
+/* ===========================
+   CONTACTOS — ESTILOS DA PÁGINA (SEM HEADER)
+   O header/hero está em /css/header.css
+   =========================== */
+
+/* Fundo igual ao das Lojas (opcional) */
+body {
+  background: linear-gradient(135deg, #faf8f5 0%, #f5f1eb 100%);
+}
+
+/* Neutraliza layout antigo sem quebrar HTML */
+.main-container { display: contents; }
+.new-section { all: unset; }
+
+/* --------- BLOCO GERAL --------- */
+.contact-section { padding: 32px 16px 0; }
+.contact-wrapper{
+  max-width: 1120px;
+  margin: 16px auto 0;
+  background: #fafafa;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.04);
+  padding: 28px;
+}
+
+.contact-title{
+  text-align: center;
+  margin: 0 0 24px;
+  font-size: 1.8rem;
+  color: #3d2f22;
+}
+
+/* --------- LAYOUT DAS COLUNAS --------- */
+.contact-columns{
+  display: grid;
+  grid-template-columns: 0.8fr 2fr; /* ~28/72 */
+  gap: 32px;
+  align-items: start;
+}
+
+/* Coluna: Informações */
+.contact-info { font-size: 15px; line-height: 1.65; }
+.contact-item { margin-bottom: 18px; }
+.contact-item h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 8px;
+  color: #111;
+}
+.contact-item p { margin: 4px 0; display: flex; align-items: center; gap: 8px; }
+
+/* Links de contacto (tel/mail) */
+.contact-info a {
+  color: #1a73e8;
+  text-decoration: none;
+  font-weight: 600;
+}
+.contact-info a:hover { text-decoration: underline; }
+
+/* Ícones */
+.call-icon  { width: 16px; height: 16px; object-fit: contain; }
+.email-icon { width: 18px; height: 18px; object-fit: contain; }
+
+/* Botões simples (redes sociais) */
+.btn{
+  display: inline-block;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+.btn:hover { background: #f7f7f7; }
+
+/* Coluna: Formulário */
+.message-form{
+  display: block;
+  background: transparent;
+  max-width: none;
+  margin: 0;
+  box-sizing: border-box;
+  padding-left: 0;
+  border-left: none;
+}
+.message-form h3 { margin: 0 0 12px; font-size: 24px; color: #333; }
+.form-group { margin-bottom: 14px; }
+.form-group label {
+  display: block; font-weight: 700; margin-bottom: 6px; color: #555;
+}
+.form-group input,
+.form-group textarea{
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+.form-group input:focus,
+.form-group textarea:focus{
+  outline: none;
+  border-color: #b77d47;
+  box-shadow: 0 0 0 3px rgba(183,125,71,.15);
+}
+.form-group textarea { min-height: 120px; resize: vertical; }
+
+.btn-primary{
+  background: #4CAF50;
+  color: #fff;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.btn-primary:hover { background: #45a049; }
+
+/* Separador só em desktop para dar leveza */
+@media (min-width: 900px){
+  .message-form { border-left: 1px solid rgba(0,0,0,.06); padding-left: 24px; }
+}
+
+/* Responsivo: empilhar abaixo de 900px */
+@media (max-width: 900px){
+  .contact-columns { grid-template-columns: 1fr; gap: 18px; }
+  .message-form   { border-left: none; padding-left: 0; }
+}
+
+/* --------- MAPA --------- */
+#mapa{
+  padding: 16px 16px 32px;
+  margin-top: 20px;
+}
+#mapa iframe{
+  display: block;
+  width: 100%;
+  max-width: 1120px;
+  height: 380px;
+  margin: 0 auto;
+  border: 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0,0,0,.05);
+}
+@media (max-width: 768px){
+  #mapa iframe { height: 300px; }
+}
+
+/* --------- CTA PARA LOJAS --------- */
+.stores-cta{
+  padding: 16px 16px 48px;
+}
+.stores-cta__box{
+  display: block;
+  max-width: 1120px;
+  margin: 0 auto;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  background: #ebe7e3;
+  background-image:
+    linear-gradient(to right, rgba(0,0,0,.65) 0%, rgba(0,0,0,.35) 40%, rgba(0,0,0,0) 70%),
+    url('/imagens/ericeirapao.jpg');
+  background-size: cover;
+  background-position: 65% 70%;
+  background-repeat: no-repeat;
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.stores-cta__box:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(0,0,0,.12);
+}
+
+.stores-cta__content{
+  color: #fff;
+  padding: 36px 28px;
+}
+.stores-cta__content h2{
+  margin: 6px 0 8px;
+  font-size: clamp(22px, 3.5vw, 30px);
+  line-height: 1.2;
+}
+.stores-cta__content .eyebrow{
+  letter-spacing: .08em; text-transform: uppercase; opacity: .9;
+  font-weight: 700; font-size: .85rem;
+}
+.stores-cta__content .subtitle{
+  margin: 0 0 14px; opacity: .95;
+}
+
+.btn-ghost{
+  display: inline-block;
+  padding: 10px 14px;
+  border: 1px solid rgba(255,255,255,.7);
+  border-radius: 10px;
+  color: #fff;
+  backdrop-filter: blur(2px);
+  transition: background .2s ease, border-color .2s ease;
+}
+.stores-cta__box:hover .btn-ghost{
+  background: rgba(255,255,255,.14);
+  border-color: rgba(255,255,255,.9);
+}
+
+/* --------- AJUSTES FINOS / REUSO --------- */
+.fa-instagram, .fa-facebook { margin-right: 10px; cursor: pointer; }
+.fa-instagram:hover, .fa-facebook:hover { color: #555; }
+
+
+

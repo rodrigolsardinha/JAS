@@ -1,0 +1,37 @@
+/* Estilo do Modal */
+.modal {
+    display: none; /* Modal escondido por padrão */
+    position: fixed; /* Fixo na tela */
+    z-index: 1; /* Fica na frente de tudo */
+    left: 0;
+    top: 0;
+    width: 100%; /* Largura total */
+    height: 100%; /* Altura total */
+    overflow: auto; /* Ativa a barra de rolagem se necessário */
+    background-color: rgb(0,0,0); /* Fundo preto */
+    background-color: rgba(0,0,0,0.4); /* Fundo preto com opacidade */
+}
+
+/* Conteúdo/Box do Modal */
+.modal-conteudo {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% do topo e centralizado horizontalmente */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* 80% da largura da tela */
+}
+
+/* Botão de fechar */
+.fechar {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.fechar:hover,
+.fechar:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

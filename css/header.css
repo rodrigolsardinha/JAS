@@ -1,0 +1,446 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap');
+
+/* Base mínima para o header */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', 'DM Sans', 'Montserrat', Arial, sans-serif;
+  color: #000;
+  overflow-x: hidden;
+}
+
+/* HERO do header (com imagem e gradiente) */
+.first-section {
+  --bg-brightness: 0.8;
+  background: none;
+  min-height: 40vh;
+  position: relative;
+  color: #fff;
+  text-align: center;
+  will-change: transform;
+}
+
+.first-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('/imagens/WEB_LF_25102013_0291.jpg');
+  background-size: cover;
+  background-position: 65% 17%;
+  background-repeat: no-repeat;
+  filter: brightness(var(--bg-brightness));
+  --bg-brightness: 0.6;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.first-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(187, 133, 83, 0.7) 0%, rgba(0, 0, 0, 0.45) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.first-section>* {
+  position: relative;
+  z-index: 2;
+}
+
+.first-section>header {
+  z-index: 3;
+}
+
+
+
+
+
+/* Título dentro do hero */
+.section-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  color: #000;
+  padding-bottom: 10px;
+}
+
+.section-content h1 {
+  position: relative;
+  display: inline-block;
+  font-size: 40px;
+  color: #eae9e9;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, .6);
+  font-family: 'Georgia', serif;
+  animation: fadeIn 2s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px)
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0)
+  }
+}
+
+.section-content h1::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  width: 0;
+  height: 3px;
+  background: #b77d47;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  transition: width .3s ease;
+}
+
+.section-content h1.loaded::after {
+  width: 90%;
+}
+
+/* NAV / MENU */
+header {
+    background-color: transparent;
+    color: #eae9e9;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    width: 100%;
+    padding: 0 5%;
+    position: relative;
+    z-index: 9999;
+}
+
+/*.header-container{
+  position: relative;        
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+header nav {
+  position: absolute;
+  left: 950px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}*/
+
+
+.header-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+header .logo {
+    position: absolute;
+    left: 5%;
+    top: 55%;
+    transform: translateY(-50%);
+    height: 110px;
+    margin: 0;
+    pointer-events: none; /* mantém dropdown funcional */
+}
+
+
+
+.nav-links li {
+  margin: 0 20px;
+}
+
+.nav-links a {
+    color: #eae9e9;
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
+
+    font-weight: 300;
+    font-family: 'DM Sans', sans-serif !important;
+    font-size: 18px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  width: 0;
+  height: 3px;
+  background: #b77d47;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  transition: width .3s ease;
+}
+
+.nav-links>li:not(.dropdown)>a:hover::after,
+.nav-links>li:not(.dropdown)>a.active::after {
+  width: 85%;
+}
+
+
+
+/* Dropdown */
+.nav-links .dropdown {
+  position: relative;
+}
+
+.nav-links .dropdown::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 10px;
+}
+
+.nav-links .dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: none;                /* escondido por defeito */
+    flex-direction: column;
+
+    background-color: #b77d47;
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    overflow: hidden;
+    min-width: 140px;
+
+    z-index: 10000;               /* fica acima de tudo */
+    pointer-events: auto;
+}
+
+.nav-links .dropdown:hover .dropdown-content,
+.nav-links .dropdown:focus-within .dropdown-content {
+  display: flex;
+}
+
+.nav-links .dropdown-content a {
+    display: block;
+    color: #fff;
+    padding: 10px 14px;
+    text-decoration: none;
+    text-align: center;
+
+    font-family: 'DM Sans', sans-serif !important;
+    font-weight: 300;
+    font-size: 16px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+
+    transition: background-color 0.25s ease;
+}
+
+.nav-links .dropdown-content a:hover {
+  background: #a0663e;
+}
+
+.nav-links .dropdown-content::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 0 8px 8px 8px;
+  border-style: solid;
+  border-color: transparent transparent #b77d47 transparent;
+}
+
+.nav-links .dropdown>a,
+.nav-links .dropdown>a:hover,
+.nav-links .dropdown:hover>a {
+  color: #eae9e9;
+}
+
+.nav-links .dropdown-content a.active {
+  background: #a0663e;
+}
+
+
+.nav-links .dropdown:has(.dropdown-content a.active) > a::after {
+  width: 85%;                 /* igual ao estilo da linha normal */
+  background: #b77d47;        /* cor da linha */
+  height: 3px;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  transform: translateX(-50%);
+  content: '';
+  transition: width 0.3s ease;
+}
+
+/* 2. Remove a linha quando o menu dropdown está aberto (hover ou focus) */
+.nav-links .dropdown:hover > a::after,
+.nav-links .dropdown:focus-within > a::after {
+  width: 0;
+}
+
+/* 3. (opcional) garante que a cor da palavra “PRODUTOS” fica igual ao ativo */
+.nav-links .dropdown:has(.dropdown-content a.active) > a {
+  color: #fff;
+  font-weight: 500;
+}
+
+
+
+
+/* ===== realinhar o menu sem hacks de margem ===== */
+
+
+
+.nav-links{
+  list-style: none;
+  margin-left: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 24px;                 /* teu valor alvo */
+  font-size: 20px;
+}
+
+
+/* ajustes suaves por breakpoint (opcional) */
+@media (max-width: 1280px) {
+  .nav-links {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .nav-links {
+    gap: 22px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .nav-links {
+    gap: 22px;
+  }
+}
+
+@media (max-width: 768px) {
+  header .logo {
+    height: 80px;
+    margin-top: 20px;
+    margin-left: 30px;
+  }
+}
+
+/*.first-section .header-container>img,
+.first-section header img.logo,
+.first-section header img.stores-logo {
+  height: 110px;
+  margin-top: 25px;
+  margin-left: 70px;
+  display: block;
+}*/
+
+.first-section header img.stores-logo {
+    position: absolute;
+    left: 5%;
+    top: 55%;
+    transform: translateY(-50%);
+    height: 110px;
+    margin: 0;
+    pointer-events: none;
+    z-index: 10;
+}
+
+/*.first-section .nav-links {
+  gap: 20px;
+  margin-left: 50px;
+}*/
+
+
+/* ——— Normalização do título do hero em TODAS as páginas ——— */
+.first-section .section-content{
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 0 40px;   /* afasta do topo de forma consistente */
+  text-align: center;
+}
+
+.first-section .section-content h1{
+  /* mesma fonte em todo o lado */
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 1.15;
+  margin: 0;                /* zera margens default do h1 */
+  letter-spacing: .5px;
+  color: #eae9e9;
+}
+
+/* sublinhado já existente mantém-se; só garantimos consistência */
+.first-section .section-content h1::after{
+  height: 3px;
+  background: #b77d47;
+}
+
+
+/* ============================= */
+/*   HEADER PERSONALIZADO DETERMAFRA  */
+/* ============================= */
+body.page-determafra .first-section {
+  min-height: clamp(220px, 38vh, 420px);
+  background: #fff;
+  position: relative;
+}
+
+/* remove overlays ou gradientes antigos */
+body.page-determafra .first-section::after {
+  content: none !important;
+}
+
+/* aplica o logotipo DETERMAFRA como fundo */
+body.page-determafra .first-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/imagens/WEB_LF_25102013_0291.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain; /* mostra o logo inteiro sem cortar */
+  opacity: 1;
+  z-index: 0;
+}
+
+/* certifica que o menu fica por cima */
+body.page-determafra .first-section header,
+body.page-determafra .first-section .header-container {
+  position: relative;
+  z-index: 1;
+}
+
+/* opcional — ajustar a cor dos links do menu se o fundo for claro */
+body.page-determafra .first-section .nav-links a {
+  color: #3d2e1f; /* ou #000, dependendo do contraste */
+}
+
+/* NAV IGUAL AO DO INDEX */
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}

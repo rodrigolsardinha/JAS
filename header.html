@@ -1,0 +1,31 @@
+<header>
+    <div class="header-container">
+        <img src="/imagens/logo_round.png" class="logo" alt="Logo Justino Alexandre Sardinha">
+        <nav>
+            <ul class="nav-links">
+                <li><a href="/html/index.html" id="nav-inicio">INÍCIO</a></li>
+                <li><a href="/html/empresa.html" id="nav-empresa">EMPRESA</a></li>
+                <li class="dropdown">
+                    <a href="/html/produtos.html" id="nav-produtos">PRODUTOS</a>
+                    <div class="dropdown-content">
+                        <a href="/html/pao.html">Padaria</a>
+                        <a href="/html/batata.html">Batata Frita</a>
+                        <a href="/html/pastelaria.html">Pastelaria</a>
+                    </div>
+                </li>
+                <li><a href="/html/contactos.html" id="nav-contactos">CONTACTOS</a></li>
+                <li><a href="/html/lojas.html" id="nav-lojas">LOJAS</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<script>
+    // Ativa o menu correto conforme a página
+    const path = window.location.pathname;
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.classList.remove('active');
+        if (path === link.getAttribute('href')) {
+            link.classList.add('active');
+        }
+    });
+</script>

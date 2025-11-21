@@ -1,0 +1,316 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f5f5f5; 
+    overflow-x: hidden;
+}
+
+.section-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    color: #000000;
+    padding-bottom: 10px;
+}
+
+.section-content h1 {
+    font-size: 40px; 
+    color: #4f3b28; /* Cor dourada para combinar com a paleta do site */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6); /* Sombra no texto para destacar */
+    font-family: 'Georgia', serif; /* Uma fonte mais formal */
+    animation: fadeIn 2s; /* Animação ao carregar */
+}
+
+/* Animação */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.section-content h1:after {
+    content: '';
+    display: block;
+    width: 30%; 
+    margin: 5px auto 0; 
+    height: 3px; 
+    background-color: #b77d47; 
+    border-radius: 2px; 
+}
+
+
+.first-section {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('/imagens/WEB_LF_25102013_0291.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    height: 50%; 
+    min-height: 40vh; 
+    position: relative; 
+    color: #FFFFFF; 
+    text-align: center; 
+}
+
+.first-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #eae9e9; /* rgba(0, 0, 0, 0.5) Sobreposição escura */
+    z-index: -1; /* Atrás do conteúdo */
+}
+
+header {
+    background-color: transparent;
+    color: #eae9e9; /*#4A4A4A*/
+    height: 180px; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;  
+    padding: 0 10%;
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;  
+}
+
+.logo {
+    height: 110px; 
+    margin-top: 15px;
+    margin-left: 10px;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin-right: 420px;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+}
+
+
+.nav-links .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.nav-links .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 130px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    border-radius: 4px; /* Bordas arredondadas */
+    overflow: hidden; /* Para manter tudo dentro das bordas arredondadas */
+    top: 25px;
+}
+
+.nav-links .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    background-color: #b77d47; /* Cor dos itens do submenu */
+    transition: background-color 0.3s;
+}
+
+.nav-links .dropdown-content a:hover {
+    background-color: #a0663e; /* Cor mais escura no hover */
+}
+
+.nav-links .dropdown:hover .dropdown-content {
+    display: block;
+    opacity: 1; /* Torna o submenu totalmente opaco */
+}
+
+
+
+.nav-links li {
+    margin: 0 30px;
+    margin-right: 20px;
+}
+
+.nav-links a {
+    color: #000000; /*#4A4A4A*/
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.1s; 
+    border-bottom: 3px solid transparent; 
+
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: #000000; 
+    border-bottom: 3px solid #b77d47; 
+}
+
+.nav-links a.active::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+}
+
+
+.about-section {
+  background: linear-gradient(135deg, #fff 0%, #f8f8f8 100%);
+  padding: 80px 20px;
+  position: relative;
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px;
+  margin: auto;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.about-image {
+  position: relative;
+  flex: 1;
+  min-width: 300px;
+  max-width: 450px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  transform: rotate(-1deg);
+  transition: transform 0.4s ease;
+}
+
+.about-image:hover {
+  transform: rotate(0deg) scale(1.03);
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 20px;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(to bottom right, rgba(0,0,0,0.3), transparent);
+  pointer-events: none;
+}
+
+.about-text {
+  flex: 2;
+  min-width: 320px;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #333;
+}
+
+.about-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+}
+
+.about-text h2::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  border-radius: 2px;
+  background: #d4a373; /* cor quente e artesanal */
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .about-text {
+    margin-top: 30px;
+  }
+  .about-text h2::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+
+h2, p {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+
+.products-section {
+    background-color: #fff;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.products-section h2 {
+    font-size: 30px;
+    font-weight: bold;
+    
+}
+
+.products-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.product-item {
+    flex-basis: 30%;
+    padding: 20px;
+}
+
+.product-item img {
+    width: 100%; 
+    height: auto;
+}
+
+.product-item h3 {
+    font-size: 22px;
+    margin-top: 20px;
+    color: #333;
+}
+
+.learn-more-btn {
+    padding: 10px 20px; 
+    background-color: #b77d47; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    font-size: 16px; 
+    cursor: pointer; 
+    transition: background-color 0.2s, box-shadow 0.2s; 
+    margin-top: 15px; 
+}
+
+.learn-more-btn:hover {
+    background-color: darken(#b77d47, 10%); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25); 
+}

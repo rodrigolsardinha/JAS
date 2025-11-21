@@ -1,0 +1,542 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg, #faf8f5 0%, #f5f1eb 100%);
+    color: #3d2e1f;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+
+.section-content{
+  max-width:800px; margin:0 auto; text-align:center; color:#000; padding-bottom:10px;
+}
+.section-content h1{
+  font-size:40px; color:#eae9e9;
+  text-shadow:2px 2px 8px rgba(0,0,0,.6);
+  font-family:'Georgia', serif; animation:fadeIn 2s;
+}
+@keyframes fadeIn{from{opacity:0; transform:translateY(-20px)} to{opacity:1; transform:translateY(0)}}
+.section-content h1::after {
+  content: '';
+  display: block;
+  width: 35%;
+  height: 4px;
+  margin: 6px auto 0;
+  background: #b77d47;
+  border-radius: 50px;        /* deixa a linha mais curva */
+  transform: scaleX(0.85);    /* opcional: ligeiro estreitamento */
+  transition: all 0.3s ease;  /* suaviza animação */
+}
+
+
+/* Secção de topo */
+
+.first-section{
+  /* Image lives in ::before so we can filter it without affecting children/text
+     Gradient overlay is ::after so text remains readable. */
+  --bg-brightness: 0.8; /* default brightness (1 = original, <1 darker) */
+  background: none;
+  min-height: 40vh;
+  position: relative;
+  color: #fff;
+  text-align: center;
+  will-change: transform;
+  position: relative;
+}
+
+/* background image layer (filter applies only to this pseudo-element) */
+.first-section::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('/imagens/WEB_LF_25102013_0291.jpg');  /* WEB_LF_25102013_0291.jpg */
+  background-size: cover;
+  background-position: 65% 17%;;
+  background-repeat: no-repeat;
+  filter: brightness(var(--bg-brightness));
+  --bg-brightness: 0.6;
+  z-index: 0; /* behind gradient and content */
+  pointer-events: none;
+}
+
+/* warm, desvaneced overlay on top of the image */
+.first-section::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(187,133,83,0.7) 0%, rgba(0,0,0,0.45) 100%);
+  pointer-events: none;
+  z-index: 1; /* sits above the bg image but below content */
+}
+
+/* ensure direct children (header, content) sit above the overlay */
+.first-section > * {
+  position: relative;
+  z-index: 2;
+}
+
+.first-section > header {
+  z-index: 3; /* menu e logo por cima */
+}
+
+.first-section > .section-content h1 {
+  position: relative;
+  z-index: 2;         /* fica acima do overlay e do gradiente */
+  color: #eae9e9;     /* restaura o tom original */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, .6); /* mantém contraste */
+}
+
+
+.section-content h1 {
+  position: relative;
+  display: inline-block; /* para a linha ajustar-se ao texto */
+  color: #eae9e9;
+  text-shadow: 2px 2px 8px rgba(0,0,0,.6);
+  font-family: 'Georgia', serif;
+  font-size: 40px;
+}
+
+/* Linha igual à dos links do header */
+.section-content h1::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  width: 0;
+  height: 3px;
+  background: #b77d47;
+  border-radius: 50%;          /* mesma curva */
+  transform: translateX(-50%);
+  transition: width 0.3s ease; /* mesma duração da animação */
+}
+
+/* Mostra a linha (automático sem hover, como título fixo) */
+.section-content h1.loaded::after {
+  width: 85%;
+}
+
+
+@keyframes underlineIn{
+  from { width: 0; opacity: .4; }
+  to   { width: 85%; opacity: 1; }
+}
+
+
+/* Header / Navegação (mantido) */
+header{
+  background-color: transparent;
+  color: #eae9e9;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 10%;
+  position: sticky;     /* <- chave */
+  top: 0;               /* <- chave */
+  z-index: 10000;       /* <- bem acima do h1 */
+}
+
+
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;  
+}
+
+.logo {
+    height: 110px; 
+    margin-top: 15px;
+    margin-left: 40px;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin-right: 420px;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+}
+
+/* Dropdown principal */
+.nav-links .dropdown {
+    position: relative;
+}
+
+/* Ponte de hover (evita que o menu feche ao passar o rato) */
+.nav-links .dropdown::after {
+    content: "";
+    position: absolute;
+    left: 0; 
+    right: 0;
+    top: 100%;
+    height: 10px; /* aumenta/reduz conforme precisares */
+    /* background: rgba(255,0,0,.1);  <-- ativa se quiseres ver a área */
+}
+
+/* Container do menu */
+.nav-links .dropdown-content {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%); /* só no eixo X */
+    display: flex;
+    flex-direction: column;
+    background-color: #b77d47;
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    overflow: hidden;
+    min-width: 140px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .2s ease, visibility .2s ease;
+    z-index: 10001; /* fica acima de tudo */
+}
+
+/* Mostrar menu ao hover */
+.nav-links .dropdown:hover .dropdown-content,
+.nav-links .dropdown:focus-within .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Links dentro do dropdown */
+.nav-links .dropdown-content a {
+    color: #fff;
+    padding: 10px 14px;
+    font-size: 0.95em;
+    text-decoration: none;
+    transition: background-color 0.25s ease, padding-left 0.2s ease;
+    text-align: center;
+}
+
+/* Hover nos itens do dropdown */
+.nav-links .dropdown-content a:hover {
+    background-color: #a0663e;
+    padding-left: 14px;
+}
+
+/* Seta decorativa */
+.nav-links .dropdown-content::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 0 8px 8px 8px;
+    border-style: solid;
+    border-color: transparent transparent #b77d47 transparent;
+}
+
+/* ============================= */
+/* LINKS NORMAIS DO MENU SUPERIOR */
+/* ============================= */
+/* ============================= */
+/* LINKS NORMAIS DO MENU SUPERIOR */
+/* ============================= */
+.nav-links li {
+    margin: 0 20px;
+    margin-right: 20px;
+}
+
+.nav-links a {
+    color: #eae9e9;
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
+    font-size: 1em;
+    font-weight: 400;
+    /* sem border-bottom aqui */
+}
+
+/* Linha arredondada por baixo do link (base) */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -4px;
+    width: 0;
+    height: 3px;
+    background: #b77d47;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+/* Mostra a linha só nos links normais (não dropdown) */
+.nav-links > li:not(.dropdown) > a:hover::after,
+.nav-links > li:not(.dropdown) > a.active::after {
+    width: 85%;
+}
+
+/* Texto branco no hover/ativo (links normais) */
+.nav-links > li:not(.dropdown) > a:hover,
+.nav-links > li:not(.dropdown) > a.active {
+    color: #ffffff;
+    font-weight: 500;
+}
+
+
+/* Impede linha e cor no "PRODUTOS" */
+.nav-links .dropdown > a,
+.nav-links .dropdown > a:hover,
+.nav-links .dropdown:hover > a {
+    border-bottom: none !important;
+    color: #eae9e9;
+    font-weight: 400;
+}
+
+/* ============================= */
+/* ESTADO ATIVO DENTRO DO DROPDOWN */
+/* ============================= */
+
+/* Itens do submenu ativos */
+.nav-links .dropdown-content a.active {
+    background-color: #a0663e;
+    color: #fff;
+    font-weight: 600;
+    border-bottom: none;
+}
+
+/* Destaca "PRODUTOS" quando uma subpágina está ativa (suporte moderno) */
+.nav-links .dropdown:has(.dropdown-content a.active) > a {
+    color: #ffffff;
+    font-weight: 500;
+    border-bottom: none;
+}
+
+/* Fallback (se não houver :has) — usa .current no <li class="dropdown"> */
+.nav-links .dropdown.current > a {
+    color: #ffffff;
+    font-weight: 500;
+    border-bottom: none;
+}
+
+/* ============================= */
+/* DETALHES EXTRAS */
+/* ============================= */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -4px;
+    width: 0;
+    height: 3px;
+    background: #b77d47;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+
+.first-section > .section-content h1 {
+  position: relative;
+  z-index: 2;         /* fica acima do overlay e do gradiente */
+  color: #eae9e9;     /* restaura o tom original */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, .6); /* mantém contraste */
+}
+
+
+
+/* Container */
+.container {
+    width: 100%;
+    padding: 3rem 1rem;
+}
+
+.content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.logo {
+    height: 8rem;
+    object-fit: contain;
+}
+
+.header h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #3d2e1f;
+    margin-bottom: 1.5rem;
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    color: #6b5844;
+    max-width: 42rem;
+    margin: 0 auto;
+}
+
+
+
+/* Store Cards Grid */
+.stores-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+    .stores-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Store Card */
+.store-card {
+    background: white;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    border: 2px solid #e8d5bc;
+    transition: all 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.store-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-accent {
+    height: 0.5rem;
+    background: linear-gradient(90deg, #e8a73a 0%, #f0c675 50%, #e8a73a 100%);
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+.card-content h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #3d2e1f;
+    margin-bottom: 1.5rem;
+}
+
+/* Info Section */
+.info-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.info-item {
+    display: flex;
+    gap: 0.75rem;
+    color: #6b5844;
+    font-size: 0.875rem;
+}
+
+.info-item p,
+.info-item a {
+    line-height: 1.6;
+}
+
+.info-item a {
+    color: #6b5844;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.info-item a:hover {
+    color: #e8a73a;
+}
+
+/* Icons */
+.icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+}
+
+.icon-primary {
+    color: #e8a73a;
+}
+
+/* Schedule */
+.schedule {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.schedule .special {
+    font-weight: 600;
+    color: #3d2e1f;
+}
+
+/* Footer Info */
+.footer-info {
+    background: rgba(240, 198, 117, 0.2);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    text-align: center;
+}
+
+.footer-info p {
+    color: #6b5844;
+    font-size: 0.9375rem;
+}
+
+.footer-info strong {
+    color: #3d2e1f;
+    font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+    .header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .subtitle {
+        font-size: 1.125rem;
+    }
+    
+    .logo {
+        height: 6rem;
+    }
+    
+    .container {
+        padding: 2rem 1rem;
+    }
+    
+    .header {
+        margin-bottom: 3rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .stores-grid {
+        gap: 2.5rem;
+    }
+}

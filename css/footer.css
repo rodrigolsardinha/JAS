@@ -1,0 +1,192 @@
+/* =========================================
+   FOOTER — VERSÃO PREMIUM COMPACTA
+   ========================================= */
+
+.footer {
+  background-color: #2a221e;
+  color: #fff;
+  padding: 26px 30px 12px; /* compacto, mas não esmagado */
+  font-family: 'DM Sans', sans-serif;
+  margin-top: 60px; 
+}
+
+/* BLOCO CENTRAL — ALINHADO AO CENTRO E COMPACTO */
+.footer-container {
+  max-width: 1080px;             /* largura mais estreita */
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;           /* colunas alinhadas pelo centro vertical */
+  gap: 70px;                     /* gap muito reduzido */
+  flex-wrap: nowrap;
+}
+
+/* COLUNAS */
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;                      /* ultra compacto */
+  font-size: 15px;               /* fonte ligeiramente maior = premium */
+}
+
+/* COLUNA 1 — LOGO */
+.footer-1 {
+  min-width: 150px;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-logo-small {
+  width: 70px;                   /* tamanho premium */
+  margin-bottom: 4px;
+}
+
+.empresa-nome {
+  font-size: 14px;               /* maior, mais elegante */
+  opacity: 0.85;
+}
+
+/* LINKS */
+.footer-col a {
+  color: rgba(255,255,255,0.88);
+  text-decoration: none;
+  font-size: 15px;               /* maior e mais limpo */
+  line-height: 1.5;              /* bem compacto */
+  transition: 0.2s;
+}
+
+.footer-col a:hover {
+  color: #fff;
+}
+
+/* CONTACTOS */
+.contact-item {
+  display: flex;
+  align-items: center;           /* alinhamento perfeito com ícones */
+  gap: 6px;
+  line-height: 1.2;
+}
+
+.contact-icon {
+  width: 15px;
+  height: 15px;
+  filter: brightness(0) invert(1);
+}
+
+.privacy-link {
+  margin-top: 2px;               /* sobe, fica alinhado com coluna */
+  font-size: 15px;
+}
+
+.footer-4 .contact-item {
+  margin-bottom: 4px;   /* espaçamento igual aos links das outras colunas */
+}
+
+.footer-4 .privacy-link {
+  margin-top: 2px;      /* já está baixo, mas reduzimos ainda mais */
+}
+/* BOTTOM BAR — COMPACTA */
+.footer-bottom {
+  margin-top: 20px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-bottom p {
+  font-size: 13px;
+  opacity: 0.75;
+}
+
+/* SOCIALS */
+.footer-socials {
+  display: flex;
+  gap: 12px;
+}
+
+.footer-socials a {
+  color: rgba(255,255,255,0.85);
+  font-size: 17px;
+}
+
+
+.footer-dropdown {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.footer-dropdown-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  color: rgba(255,255,255,0.88);
+  user-select: none;
+  transition: 0.2s;
+}
+
+.footer-dropdown-title:hover {
+  color: #fff;
+}
+
+.footer-arrow {
+  font-size: 10px;
+  opacity: 0.7;
+  transition: transform 0.3s ease;
+}
+
+/* LISTA ESCONDIDA */
+.footer-dropdown-list {
+  display: none;
+  flex-direction: column;
+  padding-left: 10px;
+  gap: 3px;
+}
+
+/* MOSTRA AO HOVER */
+.footer-dropdown:hover .footer-dropdown-list {
+  display: flex;
+}
+
+.footer-dropdown:hover .footer-arrow {
+  transform: rotate(180deg);
+}
+
+/* Links da lista */
+.footer-dropdown-list a {
+  font-size: 14px;
+  color: rgba(255,255,255,0.75);
+}
+
+.footer-dropdown-list a:hover {
+  color: #fff;
+}
+
+
+/* RESPONSIVO — MUITO LIMPO */
+@media (max-width: 900px) {
+
+  .footer-container {
+    max-width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+  }
+
+  .footer-col {
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 6px;
+    text-align: center;
+  }
+}
