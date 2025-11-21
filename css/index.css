@@ -1010,7 +1010,7 @@ body[data-aos-easing] [data-aos].aos-animate {
   background: #ebe7e3;
   background-image:
     linear-gradient(to right, rgba(0,0,0,.65) 0%, rgba(0,0,0,.35) 40%, rgba(0,0,0,0) 70%),
-    url('/imagens/ericeirapao.jpg');
+    url('imagens/ericeirapao.jpg');
   background-size: cover;
   background-position: 65% 70%;
   background-repeat: no-repeat;
@@ -1057,4 +1057,5 @@ body[data-aos-easing] [data-aos].aos-animate {
   background: rgba(255,255,255,.14);
   border-color: rgba(255,255,255,.9);
 }
+
 
