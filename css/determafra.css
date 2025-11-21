@@ -225,7 +225,7 @@ html, body {
   min-height: clamp(380px, 42vh, 720px);
   position: relative;
   isolation: isolate;
-  background-image: url('/imagens/determafra3.png');
+  background-image: url('../imagens/determafra3.png');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: contain;
@@ -299,6 +299,7 @@ html, body {
 
 /* (Opcional) micro-overlap para matar linhas fantasma em alguns zooms */
 .jas-divider{ margin-bottom:-1px; }
+
 
 
 
