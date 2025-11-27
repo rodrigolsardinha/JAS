@@ -248,10 +248,9 @@ html, body {
 .determafra-hero .dm-jas-logo{
   height: 110px;
   margin-top: 25px;
-  margin-left: 70px; /* agora soma com o padding 6% tal como nas outras */
+  margin-left: 0;      /* antes: 70px */
   display: block;
 }
-
 
 .determafra-hero .dm-home{
   position: absolute;
@@ -275,7 +274,11 @@ html, body {
 .determafra-hero .dm-home.active::after{ width:95%; }
 
 
-
+.determafra-hero .dm-nav .dm-brand{
+  display: inline-flex;   /* encaixa certinho no tamanho do conteúdo */
+  align-items: center;
+  margin-left: 70px;      /* move o conjunto, sem aumentar hitbox à esquerda */
+}
 
 
 
