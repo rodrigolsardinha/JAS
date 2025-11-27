@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/index_mobile.css" media="(max-width: 820px)">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
@@ -16,10 +17,17 @@
             <div class="overlay-bg"></div>
             <header>
                 <div class="header-container">
-                    <img src="imagens/logo_round.png" class="logo">
+                    <a href="index.html" class="logo-link" aria-label="Ir para Início">
+                      <img src="imagens/logo_round.png" class="logo" alt="Logo">
+                    </a>
+
+                    <button class="hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
+                      <span></span><span></span><span></span>
+                    </button>
                     <nav>
-                        <ul class="nav-links">
+                        <ul class="nav-links" id="mobile-menu">
                             <li><a href="index.html" class="active">INÍCIO</a></li>
+                            <li><a href="sobrenos.html">Sobre Nós</a></li>
                             <li class="dropdown">
                                 <a href="#produtos" class="dropdown-toggle">PRODUTOS</a>
                                 <div class="dropdown-content">
@@ -36,14 +44,6 @@
                     </nav>
                 </div>
             </header>
-            <!--div class="section-content">
-                <h1>JUSTINO ALEXANDRE SARDINHA, Lda</h1>
-                <div class="subtitle-group">
-                    <span class="subtitle-industria">Indústrias de Panificação, Moagem, Pastelaria e Batata Frita</span>
-                    <span class="subtitle-de">de</span>
-                </div>
-                <h2>Indústrias de Panificação, Moagem, Pastelaria e Batata Frita</h2>
-            </div-->
 
             <div class="hero-text">
                 <span class="hero-eyebrow">Mais de 50 Anos de Tradição</span>
@@ -298,6 +298,62 @@
     bg.style.transform = `translateY(${scrollTop * 0.3}px)`;
   });
     </script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const hamburger = document.querySelector(".hamburger");
+  const navLinks  = document.querySelector("header .nav-links");
+  const dropdown  = document.querySelector("header .dropdown");
+  const dropToggle = document.querySelector("header .dropdown-toggle");
+
+  // abre/fecha menu principal
+  if (hamburger && navLinks) {
+    hamburger.addEventListener("click", (e) => {
+      e.preventDefault();
+      navLinks.classList.toggle("show");
+      hamburger.setAttribute("aria-expanded", navLinks.classList.contains("show"));
+
+      // se fechar o menu principal, fecha também o dropdown
+      if (!navLinks.classList.contains("show") && dropdown) {
+        dropdown.classList.remove("open");
+      }
+    });
+  }
+
+  // toggle do dropdown PRODUTOS
+  if (dropToggle && dropdown) {
+    dropToggle.addEventListener("click", (e) => {
+      // No mobile, não queremos navegar no href="#produtos"
+      e.preventDefault();
+      dropdown.classList.toggle("open");
+    });
+  }
+
+  // ao clicar num link normal dentro do menu, fecha tudo
+  if (navLinks) {
+    navLinks.addEventListener("click", (e) => {
+      const a = e.target.closest("a");
+      if (!a) return;
+
+      // se clicou num item do dropdown (Padaria/Pastelaria/Batata), fecha menu e dropdown
+      if (a.closest(".dropdown-content")) {
+        navLinks.classList.remove("show");
+        if (dropdown) dropdown.classList.remove("open");
+        if (hamburger) hamburger.setAttribute("aria-expanded", "false");
+        return;
+      }
+
+      // se clicou noutro link (CONTACTOS/LOJAS/DETERMAFRA), fecha menu
+      if (!a.classList.contains("dropdown-toggle")) {
+        navLinks.classList.remove("show");
+        if (dropdown) dropdown.classList.remove("open");
+        if (hamburger) hamburger.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+});
+</script>
 
 
 </body>
