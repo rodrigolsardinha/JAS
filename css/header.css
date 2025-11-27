@@ -446,5 +446,45 @@ body.page-determafra .first-section .nav-links a {
 }
 
 
+/* --- LOGO CLICÁVEL --- */
 
+/* O link é quem fica posicionado e clicável */
+.logo-link {
+  position: absolute;
+  left: 5%;
+  top: 55%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  z-index: 10000;
+  text-decoration: none;
+}
+
+/* A imagem passa a ser “normal” dentro do link */
+.logo-link .logo {
+  position: static;      /* já não é absolute */
+  transform: none;
+  height: 110px;
+  margin: 0;
+  display: block;
+  pointer-events: auto;  /* permite clique normal */
+}
+
+/* Garantir que não fica nada a bloquear clique por engano */
+header .logo {
+  pointer-events: auto;
+}
+
+
+.dm-nav .dm-brand{
+  display: inline-block;
+}
+
+/* imagem sem margem lateral que expanda o clique */
+.determafra-hero .dm-jas-logo{
+  height: 110px;
+  margin-top: 25px;
+  margin-left: 0;   /* REMOVE a margem lateral */
+  display: block;
+}
 
