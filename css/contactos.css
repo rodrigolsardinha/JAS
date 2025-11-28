@@ -39,16 +39,6 @@ body {
   align-items: start;
 }
 
-/* Coluna: Informações */
-.contact-info { font-size: 15px; line-height: 1.65; }
-.contact-item { margin-bottom: 18px; }
-.contact-item h3 {
-  font-size: 16px;
-  font-weight: 700;
-  margin: 0 0 8px;
-  color: #111;
-}
-.contact-item p { margin: 4px 0; display: flex; align-items: center; gap: 8px; }
 
 /* Links de contacto (tel/mail) */
 .contact-info a {
@@ -61,6 +51,40 @@ body {
 /* Ícones */
 .call-icon  { width: 16px; height: 16px; object-fit: contain; }
 .email-icon { width: 18px; height: 18px; object-fit: contain; }
+
+
+.contact-info {
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.contact-info .contact-item {
+  display: block;          /* override a qualquer display:flex vindo de outro lado */
+  margin-bottom: 24px;
+}
+
+.contact-info .contact-item h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 8px;
+  color: #111;
+}
+
+.contact-info .contact-item p {
+  margin: 4px 0 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.contact-info .contact-item {
+  display: block;
+  margin-bottom: 24px;   /* mais espaço entre Contacto / Email / Morada / Redes */
+}
+
+.contact-info .contact-item:last-child {
+  margin-bottom: 0;      /* não deixa um buraco extra no fim da coluna */
+}
 
 /* Botões simples (redes sociais) */
 .btn{
